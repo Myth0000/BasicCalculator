@@ -24,5 +24,40 @@ namespace BasicCalculator
         {
             InitializeComponent();
         }
+
+        private void NumbersWPButtonClick(object sender, RoutedEventArgs e)
+        {
+            var Button = sender as Button;
+
+            if (Button != null)
+            {
+                var SelectedNumber = Button.Content;
+                OutputTB.Text += SelectedNumber.ToString();
+            }
+            
+        }
+        
+        private void OperatorsSPButtonClick(object sender, RoutedEventArgs e)
+        {
+            var Button = sender as Button;
+
+            if (Button != null && !string.IsNullOrWhiteSpace(OutputTB.Text))
+            {
+                var SelectedNumber = Button.Content;
+                OutputTB.Text += SelectedNumber.ToString();
+            }
+        }
+
+        private void ClearButtonClick(object sender, RoutedEventArgs e)
+        {
+            var OutputText = OutputTB.Text;
+            OutputTB.Text = OutputText.Remove(0, OutputText.Length);
+        }
+
+        private void RemoveButtonClick(object sender, RoutedEventArgs e)
+        {
+            var OutputText = OutputTB.Text;
+            OutputTB.Text = !string.IsNullOrWhiteSpace(OutputText) ? OutputText.Remove(OutputText.Length-1) : OutputText;
+        }
     }
 }

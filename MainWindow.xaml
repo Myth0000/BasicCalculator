@@ -5,8 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BasicCalculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="287.5" Width="320" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="ButtonsSettings" TargetType="Button">
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="OutputTB" IsReadOnly="True"/>
+
+        <StackPanel x:Name="ButtonsWP" Width="400" Grid.Row="1" Orientation="Horizontal">
+
+            <WrapPanel x:Name="NumbersWP" Width="180" Margin="2.5,5,0,0">
+                <WrapPanel.Resources>
+                    <Style TargetType="Button" BasedOn="{StaticResource ButtonsSettings}">
+                        <EventSetter Event="Click" Handler="NumbersWPButtonClick"/>
+                    </Style>
+                </WrapPanel.Resources>
+                <Button Content="1"/>
+                <Button Content="2"/>
+                <Button Content="3"/>
+                <Button Content="4"/>
+                <Button Content="5"/>
+                <Button Content="6"/>
+                <Button Content="7"/>
+                <Button Content="8"/>
+                <Button Content="9"/>
+                <Button Content="0"/>
+            </WrapPanel>
+
+            <StackPanel x:Name="OperatorsSP" Margin="0,5,0,0">
+                <StackPanel.Resources>
+                    <Style TargetType="Button" BasedOn="{StaticResource ButtonsSettings}">
+                        <EventSetter Event="Click" Handler="OperatorsSPButtonClick"/>
+                        <Setter Property="FontSize" Value="15"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Button Content="+"/>
+                <Button Content="-"/>
+                <Button Content="/"/>
+                <Button Content="X"/>
+            </StackPanel>
+
+            <StackPanel x:Name="OtherButtonsSP" Margin="0,5,0,0">
+                <StackPanel.Resources>
+                    <Style TargetType="Button" BasedOn="{StaticResource ButtonsSettings}">
+                        <Setter Property="FontSize" Value="15"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Button Content="Clear" Click="ClearButtonClick"/>
+                <Button Content="Remove" Click="RemoveButtonClick"/>
+                <Button Content="Enter"/>
+            </StackPanel>
+
+        </StackPanel>
+
     </Grid>
 </Window>
