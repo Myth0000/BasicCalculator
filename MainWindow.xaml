@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BasicCalculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="287.5" Width="320" ResizeMode="NoResize">
+        Title="Basic Calculator" Height="287.5" Width="320" ResizeMode="NoResize">
     <Window.Resources>
         <Style x:Key="ButtonsSettings" TargetType="Button">
             <Setter Property="Height" Value="35"/>
@@ -39,7 +39,7 @@
                 <Button Content="7"/>
                 <Button Content="8"/>
                 <Button Content="9"/>
-                <Button Content="0"/>
+                <Button Content="0" Width="180"/>
             </WrapPanel>
 
             <StackPanel x:Name="OperatorsSP" Margin="0,5,0,0">
@@ -63,7 +63,7 @@
                 </StackPanel.Resources>
                 <Button Content="Clear" Click="ClearButtonClick"/>
                 <Button Content="Remove" Click="RemoveButtonClick"/>
-                <Button Content="Enter"/>
+                <Button Content="Enter" Height="70" Click="EnterButtonClick"/>
             </StackPanel>
 
         </StackPanel>
